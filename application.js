@@ -8,7 +8,7 @@ submit.addEventListener('click', function(e) {  // Runs getValues when form's su
 
 getValues = () => {  // Converts values from form fields into integers, then assigns these integers to variables.
 const age = parseInt(document.getElementById("age").value);
-const gender = document.getElementsByName("gender");
+const gender = document.getElementsByName("gender"); // This produces a node-list with 2 items, male and female.  Male is checked by default.
 const heightFeet = parseInt(document.getElementById("feet").value);
 const heightInches = parseInt(document.getElementById("inches").value);
 const weightStone = parseInt(document.getElementById("stone").value);
@@ -21,29 +21,26 @@ finalResult(x, y, z, gender); // calls finalResult function below, passes return
 }
 
 
-calculateAge = age => { //checks gender, performs appropriate calculation, returns result as finalAge.
+calculateAge = age => { // Multiplies user's age by 5 and saves this as finalAge.
   finalAge = age * 5;
-  //console.log(finalAge);
   return finalAge;
 }
 
-calculateWeight = (weightStone, weightLbs) => {
+calculateWeight = (weightStone, weightLbs) => { // Converts user's imperial weight into kg, multiplies it by 10, and returns finalWeight.
   kilogramWeight = ((weightStone * 14) + weightLbs) * 0.453;
   finalWeight = kilogramWeight * 10;
-  //console.log(finalWeight);
   return finalWeight;
 }
 
-calculateHeight = (heightFeet, heightInches) => {
+calculateHeight = (heightFeet, heightInches) => { // Converts user's imperial height into cm, multiplies it by 6.25, and returns finalHeight.
   centimeterHeight = ((heightFeet * 12) + heightInches) * 2.54;
   finalHeight = centimeterHeight * 6.25;
-  //console.log(finalHeight);
   return finalHeight;
 }
 
 finalResult = (x, y, z, gender) => {
-  result = z + y - x;
-  for(i = 0; i < gender.length; i++) {
+  result = z + y - x; // finalWeight + finalHeight - finalAge.
+  for(i = 0; i < gender.length; i++) { // This checks to see which gender the user checked. If 'male', +5 to finalResult. Else, -161 from finalResult.
     if(gender[i].checked) {
       finalResult = result + 5;
       break;
@@ -53,7 +50,7 @@ finalResult = (x, y, z, gender) => {
     }
   }
  
-  revealResult(finalResult);
+  revealResult(finalResult); // Calls below function & passes finalResult as an argument.
 
   return finalResult;
 }
@@ -62,10 +59,10 @@ revealResult = finalResult => {
   finalResult = Math.floor(finalResult);
   let finalBmi = finalResult.toString()
   
-  document.getElementById('results').style.display = 'block';
-  const calories = document.getElementById("bmi-result");
-  calories.classList.add("finalNumberStyling")
-  calories.innerText = finalBmi + ' calories per day';
+  document.getElementById('results').style.display = 'block'; // Reveals the 'results' box which was originally hidden (see line 1)
+  const calories = document.getElementById("bmi-result"); // Grabs 'p' element.
+  calories.classList.add("finalNumberStyling") // Applies simple styling to 'p' element.
+  calories.innerText = finalBmi + ' calories per day'; // Inserts finalBmi string into 'p' element.
 }
 
 
