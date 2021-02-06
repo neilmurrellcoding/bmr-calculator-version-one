@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/index.css">
+  <title>BMI Calculator</title>
+</head>
+<body>
+  <div class="first-container">
+  <div class="second-container">
+    <div class="application">
+      <h1 class="title">DIET PLANNER</h1>
+      <p class="intro">Fill out the below fields to discover your BMR.</p><br>
+      <p class="intro">Your BMR is the number of calories you burn off in 24 hours</p>
+
+      <form>
+        <div class="radio-buttons">
+          <p class="label"><strong>Select your gender</strong></p>
+          <input type="radio" checked="checked" id="male" name="gender" value="male"><label for="male" class="gender-label">Male</label>
+          <input type="radio" id="female" name="gender" value="female"><label for="female" class="gender-label">Female</label>
+        </div>
+
+
+        <p class="label"><strong>Age</strong></p>
+        <input type="number" id="age" class="age-field" min="0" max="130" placeholder="Enter your age"><br><br><br>
+        
+        <p class="label"><strong>Height</strong></p>
+        <input type="number" id="feet" class="field" min="0" max="9" placeholder="ft">
+        <input type="number" id="inches" class="field" min="0" max="11" placeholder="in"><br>
+
+        <p class="label"><strong>Weight</strong></p>
+
+        <input type="number" id="stone" class="field" min="0" max="80" placeholder="stone">
+        <input type="number" id="lbs" class="field" min="0" max="13" placeholder="lbs"><br>
+        
+
+        <input type="submit" id="submit" class="submit">
+      </form>
+
+      
+    </div>
+
+  </div>
+  <div id="results">
+    <div class="results-container">
+      <h1 class="title">Your daily BMI is:</h1>
+      <p id="bmi-result">Placeholder text</p>
+    </div>
+  </div>
+</div>
+  <script src="application.js"></script>
+</body>
+</html>
